@@ -118,7 +118,7 @@ export default function Index() {
           <p className="mb-5 font-mono text-xs uppercase tracking-[0.22em] text-flame">Tools for people building the future</p>
           <h1 className="font-display text-[clamp(4.6rem,13vw,11.5rem)] font-bold leading-[0.82] tracking-[-0.085em] text-cream">Build<br /><span className="text-red">better.</span></h1>
           <div className="mt-10 flex max-w-2xl flex-col justify-between gap-8 border-t border-cream/25 pt-6 sm:flex-row sm:items-end">
-            <p className="max-w-md text-base leading-relaxed text-cream/70 sm:text-lg">Premium synthetic datasets and modular frameworks for teams who would rather make progress than make noise.</p>
+            <p className="max-w-md text-base leading-relaxed text-cream/70 sm:text-lg">Production-ready datasets, modular operating systems, and implementation resources built to help technical teams move from idea to deployment faster.</p>
             <button onClick={() => scrollTo("assets")} className="flex shrink-0 items-center gap-3 self-start text-xs font-bold uppercase tracking-[0.17em] text-flame transition-colors hover:text-cream sm:self-end">See what&apos;s in the shop <span className="flex h-10 w-10 items-center justify-center rounded-full border border-flame"><ArrowDown className="h-4 w-4" /></span></button>
           </div>
         </div>
