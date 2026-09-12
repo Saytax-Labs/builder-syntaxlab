@@ -111,7 +111,7 @@ export default function Index() {
         <div className="pointer-events-none absolute right-[-120px] top-[130px] hidden h-[470px] w-[470px] rounded-full border border-flame/30 lg:block" />
         <div className="pointer-events-none absolute right-[-25px] top-[225px] hidden h-[280px] w-[280px] rounded-full border border-cream/10 lg:block" />
         <div className="mb-12 flex items-start justify-between gap-6">
-          <p className="eyebrow"><span className="mr-2 inline-block h-2 w-2 rounded-full bg-flame" /> Independent digital goods / Est. 2024</p>
+          <p className="eyebrow"><span className="mr-2 inline-block h-2 w-2 rounded-full bg-flame" /> Developer-ready digital assets</p>
           <span className="hidden font-mono text-[10px] uppercase tracking-[0.25em] text-cream/45 sm:block">N 40° 42' 46" &nbsp; W 74° 00' 21"</span>
         </div>
         <div className="relative max-w-5xl">
