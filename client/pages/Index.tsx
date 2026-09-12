@@ -20,6 +20,7 @@ type Asset = {
   price?: string;
   status: "available" | "coming-soon";
   accessUrl?: string;
+  url?: string;
   accent: "red" | "orange";
   number: string;
   featured: boolean;
@@ -162,12 +163,15 @@ function AssetCard({ asset }: { asset: Asset }) {
   const categoryClasses = isRed ? "text-flame" : "text-cream/45";
   const titleClasses = isRed ? "text-cream" : "text-cream/80";
   const descriptionClasses = isRed ? "text-cream/75" : "text-cream/45";
+  const cardClassName = `group relative flex min-h-[380px] flex-col overflow-hidden border ${cardClasses} p-6 transition-transform hover:-translate-y-1 sm:p-8 ${asset.featured ? "md:col-span-2 lg:col-span-2" : ""}`;
 
-  return <article className={`group relative flex min-h-[380px] flex-col overflow-hidden border ${cardClasses} p-6 transition-transform hover:-translate-y-1 sm:p-8 ${asset.featured ? "md:col-span-2 lg:col-span-2" : ""}`}>
+  const cardContent = <>
     <div className="flex items-center justify-between"><span className={`font-mono text-xs ${numberClasses}`}>{asset.number} / 05</span>{isAvailable ? <span className="flex items-center gap-2 rounded-full bg-flame px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.1em] text-ink"><span className="h-1.5 w-1.5 rounded-full bg-ink" /> Available now</span> : <span className="rounded-full border border-cream/20 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.1em] text-cream/45">Coming soon</span>}</div>
     <div className="mt-auto"><p className={`mb-3 font-mono text-[10px] uppercase tracking-[0.18em] ${categoryClasses}`}>{asset.category}</p><h3 className={`max-w-xl font-display text-3xl font-bold leading-[0.94] tracking-[-0.055em] sm:text-4xl ${titleClasses}`}>{asset.title}</h3><p className={`mt-5 max-w-lg text-sm leading-relaxed ${descriptionClasses}`}>{asset.description}</p>{isAvailable && <div className="mt-7 flex flex-wrap items-center justify-between gap-4 border-t border-cream/20 pt-5"><div className="flex gap-5 font-mono text-xs"><span className="text-cream/45">Format <strong className="ml-1 text-cream">{asset.format}</strong></span><span className="text-cream/45">Price <strong className="ml-1 text-cream">{asset.price}</strong></span></div><a href={asset.accessUrl} target="_blank" rel="noreferrer" className="flex items-center gap-2 rounded-full bg-cream px-4 py-2.5 text-xs font-bold uppercase tracking-[0.12em] text-ink transition-colors hover:bg-flame">Get dataset <ArrowUpRight className="h-4 w-4" /></a></div>}</div>
     {!isAvailable && <div className="absolute bottom-8 right-8 text-flame/35 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"><ChevronRight className="h-7 w-7" /></div>}
-  </article>;
+  </>;
+
+  return asset.url ? <a href={asset.url} target="_blank" rel="noreferrer" className={cardClassName}>{cardContent}</a> : <article className={cardClassName}>{cardContent}</article>;
 }
 
 function Modal({ type, onClose }: { type: Exclude<ModalType, null>; onClose: () => void }) {
