@@ -22,9 +22,10 @@ type Asset = {
   accessUrl?: string;
   accent: "red" | "orange";
   number: string;
+  featured: boolean;
 };
 
-const assets: Asset[] = [
+const digitalAssets: Asset[] = [
   {
     title: "Medical Billing & ICD-10 Synthetic QA Dataset",
     category: "Production-Ready AI Fine-Tuning Datasets",
@@ -35,6 +36,7 @@ const assets: Asset[] = [
     status: "coming-soon",
     accent: "red",
     number: "001",
+    featured: true,
   },
   {
     title: "Turnkey Agency Operating Systems",
@@ -43,6 +45,7 @@ const assets: Asset[] = [
     status: "coming-soon",
     accent: "orange",
     number: "002",
+    featured: false,
   },
   {
     title: "Micro-SaaS Code Boilerplates",
@@ -51,6 +54,7 @@ const assets: Asset[] = [
     status: "coming-soon",
     accent: "orange",
     number: "003",
+    featured: false,
   },
   {
     title: "Compliance Policy Frameworks",
@@ -59,6 +63,7 @@ const assets: Asset[] = [
     status: "coming-soon",
     accent: "orange",
     number: "004",
+    featured: false,
   },
   {
     title: "Automated Agency OS Workflows",
@@ -67,6 +72,7 @@ const assets: Asset[] = [
     status: "coming-soon",
     accent: "orange",
     number: "005",
+    featured: false,
   },
 ];
 
@@ -135,7 +141,7 @@ export default function Index() {
       <section id="assets" className="mx-auto max-w-[1440px] px-5 py-20 sm:px-8 lg:px-16 lg:py-28">
         <div className="mb-12 flex flex-col justify-between gap-6 border-b border-cream/20 pb-6 sm:flex-row sm:items-end"><div><p className="eyebrow">The catalog / 2024—25</p><h2 className="mt-5 font-display text-5xl font-bold tracking-[-0.07em] sm:text-7xl">The good stuff.</h2></div><p className="max-w-xs text-sm leading-relaxed text-cream/55">Small-batch digital assets for ambitious operators, creators, and teams.</p></div>
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {assets.map((asset, index) => <AssetCard key={asset.title} asset={asset} featured={index === 0} />)}
+          {digitalAssets.map((asset) => <AssetCard key={asset.title} asset={asset} />)}
         </div>
       </section>
 
@@ -148,7 +154,7 @@ export default function Index() {
   );
 }
 
-function AssetCard({ asset, featured }: { asset: Asset; featured: boolean }) {
+function AssetCard({ asset }: { asset: Asset }) {
   const isAvailable = asset.status === "available";
   const isRed = asset.accent === "red";
   const cardClasses = isRed ? "border-red bg-red" : "border-cream/20 bg-ink/30";
@@ -157,7 +163,7 @@ function AssetCard({ asset, featured }: { asset: Asset; featured: boolean }) {
   const titleClasses = isRed ? "text-cream" : "text-cream/80";
   const descriptionClasses = isRed ? "text-cream/75" : "text-cream/45";
 
-  return <article className={`group relative flex min-h-[380px] flex-col overflow-hidden border ${cardClasses} p-6 transition-transform hover:-translate-y-1 sm:p-8 ${featured ? "md:col-span-2 lg:col-span-2" : ""}`}>
+  return <article className={`group relative flex min-h-[380px] flex-col overflow-hidden border ${cardClasses} p-6 transition-transform hover:-translate-y-1 sm:p-8 ${asset.featured ? "md:col-span-2 lg:col-span-2" : ""}`}>
     <div className="flex items-center justify-between"><span className={`font-mono text-xs ${numberClasses}`}>{asset.number} / 05</span>{isAvailable ? <span className="flex items-center gap-2 rounded-full bg-flame px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.1em] text-ink"><span className="h-1.5 w-1.5 rounded-full bg-ink" /> Available now</span> : <span className="rounded-full border border-cream/20 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.1em] text-cream/45">Coming soon</span>}</div>
     <div className="mt-auto"><p className={`mb-3 font-mono text-[10px] uppercase tracking-[0.18em] ${categoryClasses}`}>{asset.category}</p><h3 className={`max-w-xl font-display text-3xl font-bold leading-[0.94] tracking-[-0.055em] sm:text-4xl ${titleClasses}`}>{asset.title}</h3><p className={`mt-5 max-w-lg text-sm leading-relaxed ${descriptionClasses}`}>{asset.description}</p>{isAvailable && <div className="mt-7 flex flex-wrap items-center justify-between gap-4 border-t border-cream/20 pt-5"><div className="flex gap-5 font-mono text-xs"><span className="text-cream/45">Format <strong className="ml-1 text-cream">{asset.format}</strong></span><span className="text-cream/45">Price <strong className="ml-1 text-cream">{asset.price}</strong></span></div><a href={asset.accessUrl} target="_blank" rel="noreferrer" className="flex items-center gap-2 rounded-full bg-cream px-4 py-2.5 text-xs font-bold uppercase tracking-[0.12em] text-ink transition-colors hover:bg-flame">Get dataset <ArrowUpRight className="h-4 w-4" /></a></div>}</div>
     {!isAvailable && <div className="absolute bottom-8 right-8 text-flame/35 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"><ChevronRight className="h-7 w-7" /></div>}
