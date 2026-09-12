@@ -32,9 +32,7 @@ const assets: Asset[] = [
       "50,000+ cleaned, verified QA pairs formatted for fine-tuning healthcare AI models.",
     format: "JSONL / Parquet",
     price: "$249",
-    status: "available",
-    accessUrl:
-      "https://drive.google.com/file/d/11J7Lq8PtEPuioGMYin0YARcPLjbZ_UJY/view?usp=sharing",
+    status: "coming-soon",
     accent: "red",
     number: "001",
   },
