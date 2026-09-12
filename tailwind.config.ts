@@ -14,6 +14,11 @@ export default {
     },
     extend: {
       colors: {
+        canvas: "#4b624b",
+        ink: "#263729",
+        cream: "#f5f5f1",
+        red: "#e74536",
+        flame: "#ff8e57",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -57,6 +62,10 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+      },
+      fontFamily: {
+        display: ["Space Grotesk", "sans-serif"],
+        mono: ["DM Mono", "monospace"],
       },
       borderRadius: {
         lg: "var(--radius)",
