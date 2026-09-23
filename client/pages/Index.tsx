@@ -34,7 +34,9 @@ const digitalAssets: Asset[] = [
       "50,000+ cleaned, verified QA pairs formatted for fine-tuning healthcare AI models.",
     format: "JSONL / Parquet",
     price: "$249",
-    status: "coming-soon",
+    status: "available",
+    accessUrl: "https://rzp.io/rzp/4R5SsLB",
+    icon: "📊"
     accent: "red",
     number: "001",
     featured: true,
